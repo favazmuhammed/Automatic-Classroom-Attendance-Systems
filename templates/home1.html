@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+<ul>
+    <li><a class="active" href="home">Home</a></li>
+    <li style="float:right"><a href="logout">Logout</a></li>
+    {% if role == 'student' %}
+    <li style="float:right"><a href="academic">Academics</a></li>
+    {% endif %}
+    <li style="float:right"><a href="profile">Profile</a></li>
+    <li style="float:right"><a href="courses">Courses</a></li>
+    
+  </ul>
+  
+  <div class="card" style="background-color:#eee;">
+      <div class="card-body">
+        {% if role == 'student' %}
+        <h2 class="card-title" style="text-align:center">{{user.std_name}}</h2>
+        {% else %}
+        <h2 class="card-title" style="text-align:center">{{user.instructor_name}}</h2>
+        {% endif %}
+        <h3 class="roll number" style="text-align:center">{{user.student_id}}</h3>
+        <h3 class="departmrnt" style="text-align:center">{{deptname.dept_name}}</h3>
+      </div>
+    </div>
+{% endblock %}
+

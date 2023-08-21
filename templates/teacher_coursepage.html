@@ -1,0 +1,25 @@
+{% extends 'sidebar.html' %}
+{% block body_block %}
+
+<header>
+    <h2>{{name}}</h2>
+  </header>
+
+<div class="sidebar">
+  <a href="home">Home</a>
+  <a href="courses">Courses</a>
+  <a href="addstudents">Add Students</a>
+</div>
+
+<div class="content">
+        
+        <a href="students" class="button w3-button">Students</a>
+        <a href="assn" class="button w3-button">Assignments</a>
+        <a href="materials" class="button w3-button">Course Materials</a>
+        <a href="quizzes" class="button w3-button">Quizzes</a>
+        <a href="attendance" class="button w3-button">Attendance</a>
+        
+    
+</div>
+
+{% endblock %}

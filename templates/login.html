@@ -1,0 +1,29 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+
+<div class="login">
+    <div class="form">
+        <form class="registration-form">
+            <input type="text" placeholder="Name" />
+            <input type="password" placeholder="Password" />
+            <input type="text" placeholder="Email" />
+            <input type="rollnumber" placeholder="Roll Number" />
+            <input type="mobile" placeholder="Mobile Number" />
+            <button>Create</button>
+            <p><a href="#">Login</a></p>
+        </form>
+        <form class="login-form">
+            
+            <div class="btn-group">
+                <a href="#" class="btn btn-primary active" aria-current="page">Student</a>
+                <a href="#" class="btn btn-primary">Teacher</a>
+            </div>
+
+            <input type="text" placeholder="Roll Number" />
+            <input type="password" placeholder="Password" />
+            <button>Login</button>
+            <p><a href="#">Register</a></p>
+        </form>
+    </div>
+</div>

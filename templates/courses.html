@@ -1,0 +1,19 @@
+
+{% extends 'sidebar.html' %}
+{% block body_block %}
+
+<div class="sidebar">
+  <a href="home">Home</a>
+  <a class="active" href="">Courses</a>
+  <a href="addcourse">Add Course</a>
+</div>
+
+<div class="content">
+    {% for name, link in data %}
+        <a href={{link}} class="button">{{name}}</a>
+        
+    {%endfor%}
+</div>
+
+
+{% endblock %}

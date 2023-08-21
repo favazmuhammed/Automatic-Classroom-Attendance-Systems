@@ -1,0 +1,57 @@
+{% extends 'sidebar.html' %}
+{% block body_block %}
+{% load static %}
+
+<header>
+    <h2>{{name}}</h2>
+  </header>
+
+<div class="sidebar">
+  <a href="home">Home</a>
+  <a href="courses">Courses</a>
+  <a class="active" href="attendance">Attendance</a>
+  <a href="takeattendance">Take Attendance</a>
+</div>
+
+<div class="content">  
+  <h3>Attendance Register</h3>
+
+  {% comment %} <form action="/teacher/courses/attendance", method='post'>
+    {% csrf_token %}
+    <label for="date"><h4>Enter the Date</h4></label>
+    <input type="text" id="date" name="date" placeholder={{date}}>
+    <input type="submit">
+  </form>
+
+</br>
+</br> {% endcomment %}
+
+  {% if data %}
+    <table id="content">
+        <thead>
+          <th scope="col"></th>
+          {% for date in dates %}
+            <th scope="col">{{date}}</th>
+          {%endfor%}
+        </thead>
+    {% for key, values in data.items %}
+        <tbody>
+            <tr>
+                <th scope="row">{{key}}</th>
+                {%for val in values%}
+                    {%if val.1 == "Present" %}
+                    <td><img src="../..{% static 'admin/img/icon-yes.svg'  %}"  class="center" width="20" height="20"></td>
+                    {%else%}
+                    <td><img src="../..{% static 'admin/img/icon-no.svg'  %}"  class="center" width="20" height="20"></td>
+                    {%endif%}
+                {%endfor%}
+
+            </tr>
+        </tbody>
+    {% endfor %}
+    </table>
+
+  {% endif %} 
+
+</div>
+{% endblock %}

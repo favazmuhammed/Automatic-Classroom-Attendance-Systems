@@ -1,0 +1,75 @@
+{% extends 'sidebar.html' %}
+
+{% block body_block %}
+{% comment %} {% load staticfiles %} {% endcomment %}
+{% load static %}
+
+<header>
+    <h2>{{name}}</h2>
+</header>
+
+<div class="sidebar">
+  <a href="home">Home</a>
+  <a href="courses">Courses</a>
+  <a href="addcourse">Add Course</a>
+</div>
+
+<div class="content">  
+
+  {% if is_data_exist == True %}
+  <h4> Attendance Statistics </h4>
+  <table id="studentA">
+    <tbody>
+      <tr>
+          <td>Total Classes Taken</td>
+          <td>{{statistics.total_classes}}</td>
+      </tr>
+      <tr>
+        <td>Total Classes Present</td>
+        <td>{{statistics.total_present}}</td>
+      </tr>
+      <tr>
+        <td>Attendance Percentage</td>
+        <td>{{statistics.percentage}}%</td>
+    </tr>
+   </tbody>
+  </table>
+  {% comment %} <img src="../..{% static filepath1 %}"  class="center" width="300" height="300"> {% endcomment %}
+  {% comment %} <img src="../../static/graphs/dailyattendance.jpg"  class="center" width="300" height="300"> {% endcomment %}
+  <br/>
+  <br/>
+  <h4> Daily Attendance </h4>
+  <table id="student">
+    <thead>
+        <th>Date</th>
+        <th>Status</th>
+    </thead>
+{% for value in data %}
+    <tbody>
+        <tr>
+            <td>{{ value.0}}</td>
+            {%if value.1 == 1 %}
+            <td><img src="../..{% static 'admin/img/icon-yes.svg'  %}"  class="center" width="20" height="20"></td>
+            {%else%}
+            <td><img src="../..{% static 'admin/img/icon-no.svg'  %}"  class="center" width="20" height="20"></td>
+            {%endif%}
+        </tr>
+    </tbody>
+  {% comment %} <img src="../..{% static filepath2 %}"  class="center" width="300" height="300"> {% endcomment %}
+  {% comment %} <img src= {{filepath1}}  class="center" width="1000" height="250"> {% endcomment %}
+  {%endfor%}
+  {% endif %}
+  </table>
+
+
+  {% if is_data_exist == False %}
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <strong>Info!</strong> No data to display.
+  </div>
+  {% endif %}
+
+  
+
+</div>
+{% endblock %}

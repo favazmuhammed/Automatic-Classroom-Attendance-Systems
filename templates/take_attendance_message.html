@@ -1,0 +1,42 @@
+{% extends 'sidebar.html' %}
+
+{% block body_block %}
+{% comment %} {% load staticfiles %} {% endcomment %}
+{% load static %}
+
+<header>
+    <h2>{{name}}</h2>
+</header>
+
+<div class="sidebar">
+    <a href="home">Home</a>
+    <a href="courses">Courses</a>
+    <a href="attendance">Attendance</a>
+    <a href="takeattendance">Take Attendance</a>
+</div>
+
+<div class="content">  
+
+  <h4>Attendance Completed!!</h4>
+  <table id="studentA">
+    <tbody>
+      <tr>
+          <td>Number of Faces Detected </td>
+          <td>{{data.0}}</td>
+      </tr>
+      <tr>
+        <td>Total Number of Students in the Course</td>
+        <td>{{data.1}}</td>
+      </tr>
+      <tr>
+        <td>Number of Students Present</td>
+        <td>{{data.2}}</td>
+    </tr>
+    <tr>
+        <td>Number of Students Absent</td>
+        <td>{{data.3}}</td>
+    </tr>
+   </tbody>
+  </table>
+
+  {%endblock%}

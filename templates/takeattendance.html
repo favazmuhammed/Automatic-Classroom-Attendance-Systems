@@ -1,0 +1,32 @@
+{% extends 'sidebar.html' %}
+{% block body_block %}
+{% load static %}
+
+<header>
+    <h2>{{name}}</h2>
+  </header>
+
+<div class="sidebar">
+  <a href="home">Home</a>
+  <a href="courses">Courses</a>
+  <a href="attendance">Attendance</a>
+  <a class="active" href="takeattendance">Take Attendance</a>
+</div>
+
+<div class="content">  
+
+  <form action="/teacher/courses/takeattendance", method='post' enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="photo"><h4>Upload Classroom Photo</h4></label>
+    <input type="file" id="photo" name="photo">
+    <input type="submit" value="Upload">
+  </form>
+
+  <a href="webcam_attendance" class=button3>Web Cam</a>
+
+</br>
+</br>
+
+
+</div>
+{% endblock %}

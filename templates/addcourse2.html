@@ -1,0 +1,26 @@
+{% extends 'sidebar.html' %}
+{% block body_block %}
+
+<div class="sidebar">
+  <a href="home">Home</a>
+  <a href="courses">Courses</a>
+  <a class="active" href="">Add Courses</a>
+</div>
+
+<div class="content">
+    <form action="/student/addcourse", method='post'>
+      {% csrf_token %}
+
+        <label for="newcourse"><h3>Select New Course</h3></label>
+        <select id="newcourse" name="newcourse">
+          <option value="select">select</option>
+          {% for course in courses %}
+          <option value={{course.course_id}}>{{course.course_name}}</option>
+          {%endfor%}
+        </select>
+        <input type="submit" value="Submit">
+        </form>
+</div>
+
+
+{% endblock %}
